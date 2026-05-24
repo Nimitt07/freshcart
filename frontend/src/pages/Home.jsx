@@ -7,12 +7,16 @@ import api from '../services/api';
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    api.get('/products?featured=true')
+    api.get('/products')
       .then(({ data }) => setProducts(data))
+      .catch(() => setError('Products are temporarily unavailable.'))
       .finally(() => setLoading(false));
   }, []);
+
+  const featuredProducts = products.filter((product) => product.featured).slice(0, 8);
 
   return (
     <>
@@ -43,10 +47,13 @@ export default function Home() {
           <div>
             <p className="text-sm font-bold uppercase tracking-wide text-citrus">Featured</p>
             <h2 className="text-3xl font-black">Popular this week</h2>
+            {!loading && !error && <p className="mt-1 text-sm text-black/60">{products.length} groceries available</p>}
           </div>
-          <Link className="font-bold text-leaf" to="/products">View all</Link>
+          <Link className="font-bold text-leaf" to="/products">View all {products.length || ''}</Link>
         </div>
-        {loading ? <Spinner /> : <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{products.slice(0, 8).map((product) => <ProductCard key={product.id} product={product} />)}</div>}
+        {loading && <Spinner />}
+        {!loading && error && <p className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">{error}</p>}
+        {!loading && !error && <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{featuredProducts.map((product) => <ProductCard key={product.id} product={product} />)}</div>}
       </section>
     </>
   );
