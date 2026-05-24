@@ -1,4 +1,4 @@
-# FreshCart Grocery
+# Veena Traders
 
 A full-stack grocery e-commerce project with:
 

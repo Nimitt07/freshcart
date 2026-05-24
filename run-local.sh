@@ -73,7 +73,7 @@ echo "Starting frontend on http://localhost:5173"
 FRONTEND_PID=$!
 
 echo
-echo "FreshCart is starting."
+echo "Veena Traders is starting."
 echo "Frontend: http://localhost:5173"
 echo "Backend:  http://localhost:5000/api/health"
 echo

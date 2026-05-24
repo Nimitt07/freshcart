@@ -11,8 +11,8 @@ export default function Layout() {
       <header className="sticky top-0 z-20 border-b border-black/10 bg-white/95 backdrop-blur">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
           <Link to="/" className="flex items-center gap-2 text-xl font-black">
-            <span className="grid h-9 w-9 place-items-center rounded bg-leaf text-white">F</span>
-            FreshCart
+            <span className="grid h-9 w-9 place-items-center rounded bg-leaf text-white">V</span>
+            Veena Traders
           </Link>
           <div className="hidden items-center gap-6 md:flex">
             <NavLink className="nav-link" to="/products">Products</NavLink>
@@ -34,7 +34,7 @@ export default function Layout() {
       </main>
       <footer className="mt-16 border-t border-black/10 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-sm text-black/60 md:flex-row md:items-center md:justify-between">
-          <p>FreshCart Grocery - local-first demo store.</p>
+          <p>Veena Traders - local-first grocery store.</p>
           <p>Admin seed login: admin@grocery.test / admin123</p>
         </div>
       </footer>
